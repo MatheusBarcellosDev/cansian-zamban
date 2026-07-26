@@ -1,65 +1,120 @@
 import Image from "next/image";
+import Link from "next/link";
+import { AnimatedStats } from "@/components/AnimatedStats";
+import { HomePillars } from "@/components/HomePillars";
+import { site } from "@/content/site";
+import { messages, wa } from "@/lib/whatsapp";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <>
+      <section className="relative h-[72svh] min-h-[28rem] max-h-[52rem] overflow-hidden md:h-[78svh]">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
+          src="/images/hero.jpg"
+          alt="Buffet do Restaurante Cansian Zamban"
+          fill
           priority
+          className="object-cover object-[78%_center]"
+          sizes="100vw"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+        <div className="home-hero-wash absolute inset-0" />
+        <div className="shell relative flex h-full flex-col justify-end px-5 pb-16 pt-28 md:px-8 md:pb-20">
+          <div className="max-w-[10ch]">
+            <p className="type-label">Lages · Serra Catarinense</p>
+            <h1 className="type-display home-hero-title mt-3">
+              <span className="block">Cansian</span>
+              <span className="block">Zamban</span>
+            </h1>
+            <div className="mt-5 h-px w-20 bg-lime" aria-hidden />
+          </div>
+
+          <div className="mt-10">
+            <p className="type-lede">
+              {site.tagline}. Buffet a quilo, churrasco e o espaço certo para o seu evento.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link href="/buffet" className="btn-primary">
+                Ver buffet
+              </Link>
+              <Link href="/eventos" className="btn-secondary">
+                Organizar evento
+              </Link>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+      </section>
+
+      <HomePillars />
+
+      <section className="relative overflow-hidden bg-wood">
+        <Image
+          src="/images/ambiente-1.jpg"
+          alt=""
+          fill
+          className="object-cover opacity-20"
+          sizes="100vw"
+          aria-hidden
+        />
+        <div className="absolute inset-0 bg-forest-deep/75" />
+        <div className="shell relative section-pad">
+          <h2 className="type-title md:text-center">Uma casa que a Serra conhece</h2>
+          <div className="mt-8 md:mt-10">
+            <AnimatedStats />
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-forest-mid">
+        <div className="shell section-pad grid items-center gap-12 md:grid-cols-[1.15fr_0.85fr] md:gap-16">
+          <div className="min-w-0">
+            <h2 className="type-title">Selo Serra Sustentável — Bronze</h2>
+            <p className="type-body mt-5">
+              Reconhecimento por práticas ambientais, sociais e de governança na Serra Catarinense.
+              Evoluímos do selo Verde ao Bronze — com painéis solares e meta de chegar ao Prata.
+            </p>
+            <Link href="/sustentabilidade" className="btn-secondary mt-8">
+              Conhecer nossas práticas
+            </Link>
+          </div>
+          <div className="relative mx-auto aspect-[3/4] w-full max-w-[15rem] overflow-hidden bg-paper sm:max-w-sm md:aspect-[4/5] md:max-w-md">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src="/images/selo-serra-sustentavel.jpg"
+              alt="Selo Serra Sustentável Bronze 2025 — Restaurante Cansian Zamban"
+              fill
+              className="object-contain p-3 md:p-4"
+              sizes="(max-width: 768px) 240px, 420px"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="border-y border-white/10 bg-forest-deep">
+        <div className="shell section-pad-sm flex flex-col gap-6 md:flex-row md:items-center md:justify-between md:gap-10">
+          <div className="min-w-0">
+            <h2 className="type-title-sm">Buffet a quilo · Delivery · Drive-Thru</h2>
+            <ul className="type-meta mt-3 space-y-1">
+              {site.hours.map((item) => (
+                <li key={item.days}>
+                  <span className="text-mist">{item.days}:</span> {item.time}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="flex shrink-0 flex-wrap gap-3">
+            <a
+              href={wa(messages.delivery)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              Pedir no WhatsApp
+            </a>
+            <Link href="/contato" className="btn-secondary">
+              Como chegar
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
