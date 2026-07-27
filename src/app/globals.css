@@ -21,8 +21,8 @@
   /* Type scale — purpose roles; live can modulate via --p-scale */
   --p-scale: 1;
   --text-display: clamp(
-    calc(3.5rem * var(--p-scale)),
-    12vw,
+    calc(2.75rem * var(--p-scale)),
+    11vw,
     calc(6rem * var(--p-scale))
   );
   --text-page: clamp(

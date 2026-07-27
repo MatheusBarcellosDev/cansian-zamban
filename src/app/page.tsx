@@ -8,7 +8,7 @@ import { messages, wa } from "@/lib/whatsapp";
 export default function HomePage() {
   return (
     <>
-      <section className="relative h-[72svh] min-h-[28rem] max-h-[52rem] overflow-hidden md:h-[78svh]">
+      <section className="relative flex min-h-[100dvh] flex-col overflow-hidden md:min-h-0 md:h-[78svh] md:max-h-[52rem]">
         <Image
           src="/images/hero.jpg"
           alt="Buffet do Restaurante Cansian Zamban"
@@ -18,21 +18,21 @@ export default function HomePage() {
           sizes="100vw"
         />
         <div className="home-hero-wash absolute inset-0" />
-        <div className="shell relative flex h-full flex-col justify-end px-5 pb-16 pt-28 md:px-8 md:pb-20">
+        <div className="shell relative z-10 mt-auto flex w-full flex-col px-5 pb-12 pt-[calc(4.75rem+env(safe-area-inset-top))] md:px-8 md:pb-20 md:pt-28">
           <div className="max-w-[10ch]">
             <p className="type-label">Lages · Serra Catarinense</p>
-            <h1 className="type-display home-hero-title mt-3">
+            <h1 className="type-display home-hero-title mt-2 md:mt-3">
               <span className="block">Cansian</span>
               <span className="block">Zamban</span>
             </h1>
-            <div className="mt-5 h-px w-20 bg-lime" aria-hidden />
+            <div className="mt-4 h-px w-20 bg-lime md:mt-5" aria-hidden />
           </div>
 
-          <div className="mt-10">
+          <div className="mt-5 md:mt-10">
             <p className="type-lede">
               {site.tagline}. Buffet a quilo, churrasco e o espaço certo para o seu evento.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-5 flex flex-wrap gap-3 md:mt-6">
               <Link href="/buffet" className="btn-primary">
                 Ver buffet
               </Link>
