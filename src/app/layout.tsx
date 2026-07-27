@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { site } from "@/content/site";
+import { getSiteOrigin } from "@/lib/site-url";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -21,8 +22,11 @@ const fraunces = Fraunces({
   weight: ["400", "500", "600", "700"],
 });
 
+const siteOrigin = getSiteOrigin();
+const shareImage = `${siteOrigin}/images/fachada.jpg`;
+
 export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
+  metadataBase: new URL(siteOrigin),
   title: {
     default: `${site.fullName} | Buffet e Eventos em Lages`,
     template: `%s | ${site.name}`,
@@ -31,17 +35,26 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: site.url,
+    url: siteOrigin,
     siteName: site.fullName,
     title: `${site.fullName} | Buffet e Eventos em Lages`,
     description: site.description,
-    images: [{ url: "/images/fachada.jpg", width: 1200, height: 630, alt: site.fullName }],
+    images: [
+      {
+        url: shareImage,
+        secureUrl: shareImage,
+        type: "image/jpeg",
+        width: 1200,
+        height: 630,
+        alt: site.fullName,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.fullName} | Buffet e Eventos em Lages`,
     description: site.description,
-    images: ["/images/fachada.jpg"],
+    images: [shareImage],
   },
   alternates: {
     canonical: "/",
